@@ -183,8 +183,16 @@ void GameplayState::HandleCollision(int newPlayerX, int newPlayerY)
 			assert(collidedMimic);
 			AudioManager::GetInstance()->PlayMimicSound();
 			collidedMimic->Remove();
-			m_player.AddMoney(collidedMimic->GetWorth());
+			// m_player.AddMoney(collidedMimic->GetWorth());
 			m_player.SetPosition(newPlayerX, newPlayerY);
+
+			m_player.DecrementLives();
+			if (m_player.GetLives() < 0)
+			{
+				//TODO: Go to game over screen
+				AudioManager::GetInstance()->PlayLoseSound();
+				m_pOwner->LoadScene(StateMachineExampleGame::SceneName::Lose);
+			}
 			break;
 		}
 		case ActorType::Key:
