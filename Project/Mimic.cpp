@@ -1,9 +1,12 @@
 #include <iostream>
 #include "Mimic.h"
 
-Mimic::Mimic(int x, int y, int worth)
+// Editing out the third value as it serves no purpose as Mimics don't give you money
+// Also Editing out m_worth as it serves no purpose
+
+Mimic::Mimic(int x, int y)
 	: PlacableActor(x, y)
-	, m_worth(worth)
+//	, m_worth(worth)
 {
 
 }

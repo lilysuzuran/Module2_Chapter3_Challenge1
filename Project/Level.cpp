@@ -161,8 +161,10 @@ bool Level::ConvertLevel(int* playerX, int* playerY)
 				m_pActors.push_back(new Money(x, y, 1 + rand() % 5));
 				break;
 			case 'S':
+				// Was copied from Money, but Mimic doesn't give you money when you touch it
+				// Editing Out the third value which is intaken as worth in the Class File
 				m_pLevelData[index] = ' ';
-				m_pActors.push_back(new Mimic(x, y, 1 + rand() % 5));
+				m_pActors.push_back(new Mimic(x, y));
 				break;
 			case '@':
 				m_pLevelData[index] = ' ';

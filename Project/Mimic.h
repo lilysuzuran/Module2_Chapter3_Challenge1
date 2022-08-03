@@ -3,12 +3,17 @@
 class Mimic : public PlacableActor
 {
 public:
-	Mimic(int x, int y, int worth);
+	// Was copied from Money, but Mimic doesn't give you money when you touch it
+	// Editing Out the third value
 
-	int GetWorth() const { return m_worth; }
+	Mimic(int x, int y);
+
+	// Editing out this as it serves no purpose
+	// int GetWorth() const { return m_worth; }
 
 	virtual ActorType GetType() override { return ActorType::Mimic; }
 	virtual void Draw() override;
 private:
-	int m_worth;
+	// Editing out this as it serves no purpose
+	// int m_worth;
 };

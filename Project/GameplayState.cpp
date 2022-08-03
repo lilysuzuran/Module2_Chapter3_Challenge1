@@ -183,8 +183,13 @@ void GameplayState::HandleCollision(int newPlayerX, int newPlayerY)
 			assert(collidedMimic);
 			AudioManager::GetInstance()->PlayMimicSound();
 			collidedMimic->Remove();
+			
+			// This had already been removed before, but removing all associated references
 			// m_player.AddMoney(collidedMimic->GetWorth());
 			m_player.SetPosition(newPlayerX, newPlayerY);
+
+			// I had already added this from the previous update but it's good to make sure there wasn't any wasteful code
+			// The check for GetLives < 0 could probably be turned into a Function now that it's repeated, but I'm out of time for the day
 
 			m_player.DecrementLives();
 			if (m_player.GetLives() < 0)
